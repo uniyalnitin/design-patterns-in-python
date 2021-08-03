@@ -2,6 +2,7 @@
 
 from datetime import datetime
 
+
 class Iterator:
 
     def has_next(self):
@@ -22,6 +23,7 @@ class Stock:
         self.type = type
         self.quantity = quantity
         self.price = price
+
 
 class CustomerStockList:
 
@@ -74,12 +76,14 @@ class CustomerStockList:
 def main():
     customer_list1 = CustomerStockList()
     stock1 = Stock(1, "11:20", "AAPL", "BUY", 1, 200)
+    stock2 = Stock(2, "11:30", "BPCL", "BUY", 2, 300)
     customer_list1.buy(stock1)
     customer_list1.sell(stock1)
-    customer_list1.buy(stock1)
+    customer_list1.buy(stock2)
     iterator = customer_list1.create_iterator()
 
     while iterator.has_next():
         print(iterator.next())
+
 
 main()
